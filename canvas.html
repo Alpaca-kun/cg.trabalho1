@@ -1,27 +1,21 @@
 <html>
   <head>
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    <!--Compiled and minifed jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
     <script language="JavaScript" src="canvas.js"></script>
-
+    <link href="canvas.css" rel="stylesheet">
     <title>First Canvas</title>
-    <h1>First Canvas</h1>
     <div id="Buttons">
-        <button class="waves-effect waves-light btn-large">Draw Circle</button>
-        <button class="waves-effect waves-light btn-large">Draw Square</button>
-        <button class="waves-effect waves-light btn-large">Draw Triangle</button>
-
+        <button class="draw_line_button" onclick="drawLine()">Line</button>
+        <button class="draw_circle_button" onclick="drawCircle()" >Circle</button>
+        <button class="draw_rectangle_button" onclick="drawRectangle()">Rectangle</button>
+        <button class="draw_triangle_button" onclick="drawTriangle()">Triangle</button>
+        <button class="draw_poligon_button" onclick="drawPoligon()">Poligon</button>
+        <button class="clear_button" onclick="clearCanvas()">Limpar</button>
     </div>
     <style type="text/css">
       canvas { border: 1px solid black; }
     </style>
   </head>
-  <body onload="draw();">
-    <canvas id="tutorial" width="800" height="600"></canvas>
+  <body>
+    <canvas id="myCanvas" width="800" height="600"></canvas>
   </body>
 </html>
