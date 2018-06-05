@@ -1,14 +1,21 @@
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
+var c;
+var ctx;
 
-
+function draw(){
+    c = document.getElementById("myCanvas");
+    ctx = c.getContext("2d");
+}
+    
 function drawLine(){
+    draw();
+    ctx.beginPath();
     ctx.moveTo(0, 0);
     ctx.lineTo(200, 100);
     ctx.stroke();
 }
 
 function drawCircle(){
+    draw();
     ctx.arc(500, 600, 100, 0, 2*Math.PI);
     ctx.stroke();
 }
@@ -26,5 +33,6 @@ function drawPoligon(){
 }
 
 function clearCanvas(){
-    
+    ctx.clearRect(0, 0, c.width, c.height);
+    ctx.beginPath();
 }

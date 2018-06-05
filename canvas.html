@@ -3,19 +3,22 @@
     <script language="JavaScript" src="canvas.js"></script>
     <link href="canvas.css" rel="stylesheet">
     <title>First Canvas</title>
-    <div id="Buttons">
-        <button class="draw_line_button" onclick="drawLine()">Line</button>
-        <button class="draw_circle_button" onclick="drawCircle()" >Circle</button>
-        <button class="draw_rectangle_button" onclick="drawRectangle()">Rectangle</button>
-        <button class="draw_triangle_button" onclick="drawTriangle()">Triangle</button>
-        <button class="draw_poligon_button" onclick="drawPoligon()">Poligon</button>
-        <button class="clear_button" onclick="clearCanvas()">Limpar</button>
-    </div>
     <style type="text/css">
       canvas { border: 1px solid black; }
     </style>
   </head>
   <body>
-    <canvas id="myCanvas" width="800" height="600"></canvas>
+    <div id="Buttons">
+      <button onclick="drawLine()">Line</button>
+      <button onclick="drawCircle()" >Circle</button>
+      <button onclick="drawRectangle()">Rectangle</button>
+      <button onclick="drawTriangle()">Triangle</button>
+      <button onclick="drawPoligon()">Poligon</button>
+      <button onclick="clearCanvas()">Limpar</button>
+    </div>
+    <div>
+        <canvas id="myCanvas" onload="draw();" width="800" height="600"></canvas>
+    </div>
+    
   </body>
 </html>
