@@ -16,6 +16,7 @@ function drawLine(){
 
 function drawCircle(){
     draw();
+    ctx.beginPath();
     ctx.arc(500, 600, 100, 0, 2*Math.PI);
     ctx.stroke();
 }
@@ -29,7 +30,7 @@ function drawTriangle(){
 }
 
 function drawPoligon(){
-    console.log("Desenhando poligono");
+    var cont = 0;
 }
 
 function clearCanvas(){
