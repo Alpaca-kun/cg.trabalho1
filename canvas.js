@@ -1,41 +1,55 @@
-var x, y, canvas, ctx;
+const canvas = document.getElementById("myCanvas");
+const ctx = canvas.getContext("2d");
+var pos = {
+    x: 0,
+    y: 0
+};
 
-function draw(){
-    console.log("Chegou aqui");
-    canvas = document.getElementById("myCanvas");
-    ctx = canvas.getContext("2d");
-    }
+canvas.addEventListener('click', (e) => {
+    pos = {
+        x: e.clientX,
+        y: e.clientY
+    };
+    console.log('X | Y = ' + pos.x + '|' + pos.y);
+}, 
+false);
 
-function getClick(event){
-    x = event.clientX - canvas.offsetLeft;
-    y = event.clientY - canvas.offsetTop;
-    console.log("X | Y | = |" + x + "|" + y + "|");
-    }
 
 function drawLine(){
-    draw()
     ctx.beginPath();
-    ctx.moveTo(x, y);
-    ctx.lineTo(x, y);
+    ctx.moveTo(pos.x, pos.y);
+    ctx.lineTo(pos.x, pos.y);
     ctx.stroke();
 }
 
 function drawCircle(){
     ctx.beginPath();
-    ctx.arc(500, 600, 100, 0, 2*Math.PI);
+    ctx.arc(pos.x, pos.y, 100, 0, 2*Math.PI);
     ctx.stroke();
 }
 
 function drawRectangle(){
-    console.log("Desenhando retângulo");
+    ctx.beginPath();
+    ctx.strokeRect(50, 50, 50, 50);
 }
 
 function drawTriangle(){
-    console.log("Desenhando triângulo");
+    ctx.beginPath();
+    ctx.moveTo(75,50);
+    ctx.lineTo(100,75);
+    ctx.lineTo(100,25);
+    ctx.lineTo(75,50);
+    ctx.stroke();
 }
 
 function drawPoligon(){
-    var cont = 0;
+    ctx.beginPath();
+    ctx.moveTo(150, 150);
+    ctx.lineTo(200,200);
+    ctx.lineTo(200, 250);
+    ctx.lineTo(300, 250);
+    ctx.lineTo(150, 150);
+    ctx.stroke();   
 }
 
 function clearCanvas(){
