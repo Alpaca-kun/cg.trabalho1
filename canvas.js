@@ -1,21 +1,26 @@
-var c;
-var ctx;
+var x, y, canvas, ctx;
 
 function draw(){
-    c = document.getElementById("myCanvas");
-    ctx = c.getContext("2d");
-}
-    
+    console.log("Chegou aqui");
+    canvas = document.getElementById("myCanvas");
+    ctx = canvas.getContext("2d");
+    }
+
+function getClick(event){
+    x = event.clientX - canvas.offsetLeft;
+    y = event.clientY - canvas.offsetTop;
+    console.log("X | Y | = |" + x + "|" + y + "|");
+    }
+
 function drawLine(){
-    draw();
+    draw()
     ctx.beginPath();
-    ctx.moveTo(0, 0);
-    ctx.lineTo(200, 100);
+    ctx.moveTo(x, y);
+    ctx.lineTo(x, y);
     ctx.stroke();
 }
 
 function drawCircle(){
-    draw();
     ctx.beginPath();
     ctx.arc(500, 600, 100, 0, 2*Math.PI);
     ctx.stroke();
@@ -34,6 +39,5 @@ function drawPoligon(){
 }
 
 function clearCanvas(){
-    ctx.clearRect(0, 0, c.width, c.height);
-    ctx.beginPath();
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
