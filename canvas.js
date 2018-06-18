@@ -89,18 +89,22 @@ function get3Points(event){
 
 function drawLine(){
     console.log("Você escolheu desenhar uma linha.");
+    alert("Clique no primeiro ponto, continue segurando e arrate até o segundo ponto.");
     get2Points(click, 'line');    
 }
 
 function drawCircle(){
+    alert("Clique no primeiro ponto, continue segurando e arrate até o segundo ponto.");
     get2Points(click, 'circle');
 }
 
 function drawRectangle(){
+    alert("Clique no primeiro ponto, continue segurando e arrate até o segundo ponto.");
     get2Points(click, 'rect');
 }
 
 function drawTriangle(){
+    alert("Escolha três pontos dentro do canvas.");
     get3Points(click);
 }
 

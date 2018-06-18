@@ -6,9 +6,25 @@
     left:50%;
     margin-top:-250px;
     margin-left:-350px;
+    box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.5);
 }
 
 #drawButtons{
-    margin-top: 90px;
-    margin-left: 275px;
+    position: absolute;
+    margin-top: 80px;
+    margin-left: 420px;
 }
+
+#inputCommand{
+    position: absolute;
+    margin-top: 600px;
+    margin-left: 420px;
+}
+
+#verticalButtons{
+    position: absolute;
+    width: 50px;
+    margin-top: 122px;
+    margin-left: 320px;
+}
+
