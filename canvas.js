@@ -1,9 +1,11 @@
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 const click = new Event('click');
+var objectsList = [];
 
 function get2Points(event, form){
     var x0, x1, y0, y1;
+    var line, circle, rect, triangle;
     function distance2Points(){
         var distance =  Math.sqrt(Math.pow(x1-x0,2) + Math.pow(y1-y0, 2));
         return distance;
@@ -34,6 +36,9 @@ function get2Points(event, form){
                 removeEvent();        
                 break;
             case 'circle':
+                // circle = new Circle(x0, y0, x1, y1);
+                // circle.makeMatrix();
+                // objectsList.push(circle);
                 ctx.beginPath();
                 ctx.arc(x0, y0, distance2Points(), 0, 2*Math.PI);
                 ctx.stroke();

@@ -1,24 +1,12 @@
-function line()
-{
-    this.X0 = setX0;
-    this.Y0 = setY0;
-    this.X1 = setX1;
-    this.Y1 = setY1;
-
-    function setX0(_X0){
-        X0 = _X0;
+class line {
+    constructor(x0, x1, y0, y1){
+        this.x0 = x0;
+        this.x1 = x1;
+        this.y0 = y0;
+        this.y1 = y1;
     }
 
-    function setY0(_Y0){
-        Y0 = _Y0;
+    makeMatrix() {
+        
     }
-
-    function setX1(_X1){
-        X1 = _X1;
-    }
-
-    function setY1(_Y1){
-        Y1 = _Y1;
-    }
-
 }
