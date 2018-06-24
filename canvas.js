@@ -1,7 +1,8 @@
-const canvas = document.getElementById("myCanvas");
-const ctx = canvas.getContext("2d");
+const canvas = document.getElementById('myCanvas');
+const ctx = canvas.getContext('2d');
 const click = new Event('click');
 var objectsList = [];
+var objectSelected = false;
 
 function get2Points(event, form) {
     var x0, x1, y0, y1;
@@ -86,26 +87,60 @@ function get3Points(event) {
     }
 }
 
-function drawLine() {
-    alert("Clique no primeiro ponto, continue segurando e arraste até o segundo ponto.");
-    get2Points(click, 'line');    
+function draw (object) {
+    switch(object){
+        case 'line':
+            alert('Para desenhar a linha clique no primeiro ponto, continue segurando e arraste até o segundo ponto.');
+            get2Points(click, object);
+            break;
+        case 'circle':
+            alert('Para desenhar o círculo clique no primeiro ponto, continue segurando e arraste até o segundo ponto.');
+            get2Points(click, object);
+            break;
+        case 'rect':
+            alert('Clique no primeiro ponto, continue segurando e arraste até o segundo ponto.');
+            get2Points(click, object);
+            break;
+        case 'triangle':
+            alert('Escolha três pontos dentro do canvas.');
+            get3Points(click);
+            break;
+        case 'clear':
+            //Pedir confirmarção para limpar.
+            var decision = confirm('Deseja realmente limpar o canvas?');
+            if (decision) {
+                console.log('Canvas será limpado.');
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+            } else {
+                console.log('Cancelado.');
+            }
+            break;  
+        default:
+            console.log('Nenhum objeto para desenhar.');
+    }
 }
 
-function drawCircle() {
-    alert("Clique no primeiro ponto, continue segurando e arraste até o segundo ponto.");
-    get2Points(click, 'circle');
+function transformation(type) {
+    switch(type) {
+        case 'translate':
+            console.log('Tranlação');
+            var tx = prompt('Insira o deslocamento em x.');
+            var ty = prompt('Insira o deslocamento em y.');
+            console.log('Deslocamento em X: ' + tx + ' Deslocamento em Y: ' + ty);
+        break;
+        case 'rotation':
+            console.log('Rotação');
+            var angle = prompt('Insira o ângulo de rotação.');
+            console.log('Ângulo de rotação escolhido: ' + angle + '°');
+        break;
+        case 'scale':
+            console.log('Escala')
+            var sx = prompt('Insira a escala em x.');
+            var sy = prompt('Insira a escala em y.');
+            console.log('Escala em x: ' + sx + 'Escala em y: ' + sy);
+        break;
+        default:
+            console.log('Nothing to do');
+    }
 }
 
-function drawRectangle() {
-    alert("Clique no primeiro ponto, continue segurando e arraste até o segundo ponto.");
-    get2Points(click, 'rect');
-}
-
-function drawTriangle() {
-    alert("Escolha três pontos dentro do canvas.");
-    get3Points(click);
-}
-
-function clearCanvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-}
