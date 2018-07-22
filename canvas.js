@@ -185,3 +185,11 @@ function redesign() {
         objectsList[i].draw(ctx);
     }
 }
+
+canvas.addEventListener("mousemove", function (event) {
+    var coordOut = document.getElementById('cursorCoodinates');
+    event = event;
+    x1 = event.clientX - canvas.offsetLeft;
+    y1 = event.clientY - canvas.offsetTop;
+    coordOut.innerHTML = 'X = ' + x1 + ' Y = ' + y1;
+})
