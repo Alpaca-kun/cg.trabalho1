@@ -7,19 +7,21 @@ function translate (mObject, dx, dy) {
     return mm(transMatrix, mObject);
 }
 
-function rotate (mObject, angle) {
+function rotate (mObject, angle, x, y) {
+    var radians = angle * (Math.PI/180);
     var rotateMatrix = [
-        [Math.cos(angle), -Math.sen(angle), 0],
-        [Math.sen(angle), Math.cos(angle), 0],
+        [Math.cos(radians), (-1)*Math.sin(radians), (y*Math.sin(radians))-(x*Math.cos(radians))+x],
+        [Math.sin(radians), Math.cos(radians), ((-1*x)*Math.sin(radians))-(y*Math.cos(radians))+y],
         [0, 0, 1]
     ];
+    console.log(radians);
     return mm(rotateMatrix, mObject);
 }
 
-function scale (mObject, sx, sy) {
+function scale (mObject, sx, sy, x, y) {
     var scaleMatrix = [
-        [sx, 0, 0],
-        [0, sy, 0],
+        [sx, 0, x - (x*sx)],
+        [0, sy, y - (y*sy)],
         [0, 0, 1]
     ]
     return mm(scaleMatrix, mObject);

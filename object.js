@@ -1,6 +1,6 @@
 class Line {
     constructor(x0, y0, x1, y1) {
-        this.objectName = 'line';
+        this.objectName = 'Linha';
         this.x0 = x0;
         this.y0 = y0;
         this.x1 = x1;
@@ -21,25 +21,29 @@ class Line {
     }
     draw(ctx) {
         ctx.beginPath();
-        ctx.moveTo(this.x0, this.y0);
-        ctx.lineTo(this.x1, this.y1);
+        ctx.moveTo(this.objectMatrix[0][0], this.objectMatrix[1][0]);
+        ctx.lineTo(this.objectMatrix[0][1], this.objectMatrix[1][1]);
         ctx.stroke();
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = "#FF0000";
+        ctx.strokeStyle = '#FF0000';
         this.draw(ctx);
         
     }
     deselect(ctx) {
         this.isSelected = false;
-        ctx.strokeStyle = "#000000"
+        ctx.strokeStyle = '#000000';
+        this.draw(ctx);
+    }
+    setNewMatrix(newMatrix) {
+        this.objectMatrix = newMatrix;
     }
 }
 
 class Circle {
     constructor(x0, y0, radius) {
-        this.objectName = 'circle';
+        this.objectName = 'Círculo';
         this.x0 = x0;
         this.y0 = y0;
         this.radius = radius;
@@ -57,25 +61,28 @@ class Circle {
     }
     draw(ctx) {
         ctx.beginPath();
-        ctx.arc(this.x0, this.y0, this.radius, 0, 2*Math.PI);
+        ctx.arc(this.objectMatrix[0][0], this.objectMatrix[1][0], this.radius, 0, 2*Math.PI);
         ctx.stroke();
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = "#FF0000";
+        ctx.strokeStyle = '#FF0000';
         this.draw(ctx);
         
     }
     deselect(ctx) {
         this.isSelected = false;
-        ctx.strokeStyle = "#000000"
+        ctx.strokeStyle = '#000000';
+        this.draw(ctx);
     }
-    
+    setNewMatrix(newMatrix) {
+        this.objectMatrix = newMatrix;
+    }
 }
 
 class Rect {
     constructor(x0, y0, x1, y1) {
-        this.objectName = 'rect';
+        this.objectName = 'Retângulo';
         this.x0 = x0;
         this.y0 = y0;
         this.x1 = x1;
@@ -100,31 +107,34 @@ class Rect {
         this.objectMatrix[1][3] = this.y0;
         this.objectMatrix[2][3] = 1;
     }
-    
     draw(ctx){
         ctx.beginPath();
-        ctx.moveTo(this.x0, this.y0);
-        ctx.lineTo(this.x1, this.y0);
-        ctx.lineTo(this.x1, this.y1);
-        ctx.lineTo(this.x0, this.y1);
-        ctx.lineTo(this.x0, this.y0);
+        ctx.moveTo(this.objectMatrix[0][0], this.objectMatrix[1][0]);
+        ctx.lineTo(this.objectMatrix[0][1], this.objectMatrix[1][1]);
+        ctx.lineTo(this.objectMatrix[0][2], this.objectMatrix[1][2]);
+        ctx.lineTo(this.objectMatrix[0][3], this.objectMatrix[1][3]);
+        ctx.lineTo(this.objectMatrix[0][0], this.objectMatrix[1][0]);
         ctx.stroke();
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = "#FF0000";
+        ctx.strokeStyle = '#FF0000';
         this.draw(ctx);
         
     }
     deselect(ctx) {
         this.isSelected = false;
-        ctx.strokeStyle = "#000000"
+        ctx.strokeStyle = '#000000';
+        this.draw(ctx);
+    }
+    setNewMatrix(newMatrix) {
+        this.objectMatrix = newMatrix;
     }
 }
 
 class Triangle {
     constructor(x0, y0, x1, y1, x2, y2) {
-        this.objectName = 'triangle';
+        this.objectName = 'Triângulo';
         this.x0 = x0;
         this.y0 = y0;
         this.x1 = x1;
@@ -150,20 +160,24 @@ class Triangle {
     }
     draw(ctx){
         ctx.beginPath();
-        ctx.moveTo(this.x0, this.y0);
-        ctx.lineTo(this.x1, this.y1);
-        ctx.lineTo(this.x2, this.y2);
-        ctx.lineTo(this.x0, this.y0);
+        ctx.moveTo(this.objectMatrix[0][0], this.objectMatrix[1][0]);
+        ctx.lineTo(this.objectMatrix[0][1], this.objectMatrix[1][1]);
+        ctx.lineTo(this.objectMatrix[0][2], this.objectMatrix[1][2]);
+        ctx.lineTo(this.objectMatrix[0][0], this.objectMatrix[1][0]);
         ctx.stroke();
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = "#FF0000";
+        ctx.strokeStyle = '#FF0000';
         this.draw(ctx);
         
     }
     deselect(ctx) {
         this.isSelected = false;
-        ctx.strokeStyle = "#000000"
+        ctx.strokeStyle = '#000000';
+        this.draw(ctx);
+    }
+    setNewMatrix(newMatrix) {
+        this.objectMatrix = newMatrix;
     }
 }

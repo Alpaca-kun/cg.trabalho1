@@ -9,37 +9,30 @@
     </style>
   </head>
   <body>
-  </body class="buttonBody">
-  <div id="drawButtons">
-    <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('line')">Linha</button>
-    <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('circle')" >Círculo</button>
-    <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('rect')">Retângulo</button>
-    <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('triangle')">Triângulo</button>
-    <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('clear')">Limpar</button>
-    <button class="waves-effect waves-light btn-small" id="tButtons" onclick="transformation('translate')">Trans.</button>
-    <button class="waves-effect waves-light btn-small" id="tButtons" onclick="transformation('scale')">Escala</button>
-    <button class="waves-effect waves-light btn-small" id="tButtons" onclick="transformation('rotation')">Rotação</button>
-  </div>
-  <body class="canvasBody">
-    <div>
+    <div id="drawButtons">
+      <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('line')">Linha</button>
+      <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('circle')" >Círculo</button>
+      <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('rect')">Retângulo</button>
+      <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('triangle')">Triângulo</button>
+      <button class="waves-effect waves-light btn-small" id="dButton" onclick="draw('clear')">Limpar</button>
+      <button class="waves-effect waves-light btn-small" id="tButtons" onclick="transformation('translate')">Trans.</button>
+      <button class="waves-effect waves-light btn-small" id="tButtons" onclick="transformation('scale')">Escala</button>
+      <button class="waves-effect waves-light btn-small" id="tButtons" onclick="transformation('rotation')">Rotação</button>
+    </div>  
+    <div id="canvasBody">
       <canvas id='myCanvas' width='800' height='600'>Se esta mensagem for visualizada, este navegador não suporta este canvas.</canvas>
       <script language="JavaScript" src="canvas.js"></script>
       <script language="JavaScript" src="object.js"></script>
       <script language="JavaScript" src="transformation.js"></script>
+      <br>
+      <input id="commandLine" placeholder="Veja na janela de ajuda os possíveis comandos.">
+      <output id="cursorCoodinates" disabled="true">Coordenadas:</output>
+      <br>
+      <button onclick="showHelp();">Ajuda</button>
     </div>
-  </body>
-  <body>
-    <button onclick="showHelp();">Ajuda</button>
-  </body>
+    <div id="listObjects">
+      <ul id="objects" style="list-style-type:none" ></ul>
+    </div>
+  </body>  
 </html>
 
-<div id="helpModal" class="helpWindow">
-  <h1>Ajuda</h1>
-  <ol>
-    <li>Retas: </li>
-    <li>Círculos: </li>
-    <li>Retângulos:</li>
-    <li>Triângulos:</li>
-    <li>Limpar Tela:</li>
-  </ol>
-</div>
