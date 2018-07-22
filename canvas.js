@@ -106,7 +106,6 @@ function draw (object) {
             get3Points(click);
             break;
         case 'clear':
-            //Pedir confirmarção para limpar.
             var decision = confirm('Deseja realmente limpar o canvas?');
             if (decision) {
                 console.log('Canvas será limpado.');
