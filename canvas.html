@@ -3,7 +3,7 @@
   <head>
     <link href="canvas.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-    <title>First Canvas</title>
+    <title>CG-Canvas</title>
     <style type="text/css">
       canvas { border: 1px solid black; }
     </style>
@@ -25,8 +25,11 @@
       <script language="JavaScript" src="object.js"></script>
       <script language="JavaScript" src="transformation.js"></script>
       <br>
-      <input id="commandLine" placeholder="Veja na janela de ajuda os possíveis comandos.">
+      <input id="commandLine" type="text" placeholder="Veja na janela de ajuda os possíveis comandos.">
       <output id="cursorCoodinates" disabled="true"></output>
+      <br>
+      <button onclick="submitCommand();">Submit</button>
+      <br>
       <br>
       <button onclick="showHelp();">Ajuda</button>
     </div>

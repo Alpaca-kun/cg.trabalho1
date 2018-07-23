@@ -3,6 +3,7 @@ const ctx = canvas.getContext('2d');
 const click = new Event('click');
 var objectsList = [];
 var objectSelected = false;
+var text;
 
 function get2Points(event, form) {
     var x0, x1, y0, y1;
@@ -114,7 +115,7 @@ function draw (object) {
                 console.log('Canvas será limpado.');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
                 objectsList = [];
-                showListObjects();
+                clearObjectList();
             } else {
                 console.log('Cancelado.');
             }
@@ -164,6 +165,7 @@ function showListObjects() {
     var text;
     var li = document.createElement('li')
     var ul = document.getElementById('objects');
+    
     for (var i = 0; i < objectsList.length; i++) {
         text = (i+1) + ')' + objectsList[i].objectName + ' - ' + 'X0: ' + objectsList[i].objectMatrix[0][0] + ' - ' + 'Y0: ' + objectsList[i].objectMatrix[1][0] ;
         listToShow[i] = text;
@@ -171,7 +173,16 @@ function showListObjects() {
     listToShow.forEach(function(item) { 
         ul.appendChild(li);
         li.innerHTML = item;
-    });   
+    });  
+}
+
+function clearObjectList() {
+    var li;
+
+    li = document.getElementsByTagName('li');
+    for(var i = 0; i < li.length; i++) {
+        li[i].remove();
+    }
 }
 
 function clearOnlyCanvas() {
@@ -179,8 +190,6 @@ function clearOnlyCanvas() {
 }
 
 function redesign() {
-    const canvas = document.getElementById('myCanvas');
-    const ctx = canvas.getContext('2d');
     for(var i = 0; i < objectsList.length; i++) {
         objectsList[i].draw(ctx);
     }
@@ -191,5 +200,11 @@ canvas.addEventListener("mousemove", function (event) {
     event = event;
     x1 = event.clientX - canvas.offsetLeft;
     y1 = event.clientY - canvas.offsetTop;
-    coordOut.innerHTML = 'X = ' + x1 + ' Y = ' + y1;
+    coordOut.innerHTML = 'X = ' + x1 +'|' +' Y = ' + y1;
 })
+
+function submitCommand() {
+    var commandLine = document.getElementById('commandLine');
+    text = commandLine.value;
+    console.log(text);
+}
