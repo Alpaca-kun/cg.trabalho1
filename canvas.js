@@ -208,3 +208,25 @@ function submitCommand() {
     text = commandLine.value;
     console.log(text);
 }
+
+canvas.addEventListener('wheel', function(e) {
+    if (e.wheelDelta >= 0) {
+        console.log('up');
+        zoomIn();
+    } else {
+        console.log('down');
+        zoomOut();
+    }
+})
+
+function zoomIn() {
+    clearOnlyCanvas();
+    ctx.scale(2, 2);
+    redesign();
+}
+
+function zoomOut() {
+    clearOnlyCanvas();
+    ctx.scale(0.5, 0.5);
+    redesign();
+}
