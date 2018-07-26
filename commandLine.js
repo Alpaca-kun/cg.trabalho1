@@ -1,3 +1,5 @@
+var countZoom = 0;
+
 function submitCommand() {
     var commandLine = document.getElementById('commandLine');
     text = commandLine.value;
@@ -49,20 +51,28 @@ function clear() {
 }
 
 function zoomIn() {
+    countZoom++;
     clearOnlyCanvas();
     ctx.scale(2, 2);
     redesign();
 }
 
 function zoomOut() {
+    countZoom--;
     clearOnlyCanvas();
     ctx.scale(0.5, 0.5);
     redesign();
 }
 
 function zoomReset() {
-    clearOnlyCanvas();
-    ctx.scale(1, 1);
+    while(countZoom != 0){
+        if(countZoom > 0){
+            zoomOut();
+        }
+        if(countZoom < 0){
+            zoomIn();
+        }
+    }
     redesign();
     console.log("Zoom resetado");
 }

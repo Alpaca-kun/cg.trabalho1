@@ -17,7 +17,7 @@
 }
 
 #listObjects {
-    margin-top: -475px;
+    margin-top: 0px;
     margin-left: 820px;
     width: 300px;
 }
@@ -31,20 +31,32 @@
     width: 50px;
 }
 
-#buttonBody{
+#buttonBody {
     position: absolute;
     margin-top: 25px;
     margin-left: 270px;
 }
 
-#dButton{
+#dButton {
     width: 99px;
     height: 35px;
 }
 
-#inputCommand{
+#inputCommand {
     position: absolute;
     margin-top: 600px;
     margin-left: 420px;
+}
+
+#zoomButtons {
+    margin-top: -600px;
+    margin-left: 820px;
+    width: 10px; 
+}
+
+#zbutton {
+    width: 35px;
+    height: 35px;
+    text-align: center;
 }
 

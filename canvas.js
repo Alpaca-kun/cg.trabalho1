@@ -209,18 +209,3 @@ canvas.addEventListener("mousemove", function (event) {
     coordOut.innerHTML = 'X = ' + x1 +'|' +' Y = ' + y1;
 })
 
-canvas.addEventListener('wheel', function(e) {
-    if (e.wheelDelta >= 0) {
-        console.log('up');
-        zoomIn();
-    } else {
-        console.log('down');
-        zoomOut();
-    }
-})
-
-canvas.addEventListener('keydown', function(event) {
-    if (event.which == 32) {
-        zoomReset();
-    }
-})
