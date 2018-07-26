@@ -54,6 +54,7 @@ function zoomIn() {
     countZoom++;
     clearOnlyCanvas();
     ctx.scale(2, 2);
+    clearOnlyCanvas();
     redesign();
 }
 
@@ -61,6 +62,7 @@ function zoomOut() {
     countZoom--;
     clearOnlyCanvas();
     ctx.scale(0.5, 0.5);
+    clearOnlyCanvas();
     redesign();
 }
 
@@ -78,6 +80,9 @@ function zoomReset() {
 }
 
 function select(indice) {
+    for(var i = 0; i < objectsList.length - 1; i++){
+        objectsList[indice-1].deselect(ctx);    
+    }
     objectsList[indice-1].showSelected(ctx);
 }
 

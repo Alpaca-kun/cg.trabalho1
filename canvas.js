@@ -220,3 +220,7 @@ canvas.addEventListener("mousemove", function (event) {
     coordOut.innerHTML = 'X = ' + x1 +'|' +' Y = ' + y1;
 })
 
+function showHelp() {
+    document.getElementById("helpModal").showModal();
+}
+

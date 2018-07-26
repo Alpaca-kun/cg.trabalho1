@@ -27,13 +27,17 @@ class Line {
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = '#FF0000';
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'red';
         this.draw(ctx);
         
     }
     deselect(ctx) {
         this.isSelected = false;
-        ctx.strokeStyle = '#000000';
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'black';
         this.draw(ctx);
     }
     setNewMatrix(newMatrix) {
@@ -66,13 +70,17 @@ class Circle {
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = '#FF0000';
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'red';
         this.draw(ctx);
         
     }
     deselect(ctx) {
         this.isSelected = false;
-        ctx.strokeStyle = '#000000';
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'black';
         this.draw(ctx);
     }
     setNewMatrix(newMatrix) {
@@ -118,13 +126,17 @@ class Rect {
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = '#FF0000';
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'red';
         this.draw(ctx);
         
     }
     deselect(ctx) {
         this.isSelected = false;
-        ctx.strokeStyle = '#000000';
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'black';
         this.draw(ctx);
     }
     setNewMatrix(newMatrix) {
@@ -168,16 +180,18 @@ class Triangle {
     }
     showSelected(ctx) {
         this.isSelected = true;
-        ctx.strokeStyle = '#FF0000';
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'red';
         this.draw(ctx);
         
     }
     deselect(ctx) {
-        if(this.isSelected == true) {
-            this.isSelected = false;
-            ctx.strokeStyle = '#000000';
-            this.draw(ctx);
-        }
+        this.isSelected = false;
+        ctx.strokeStyle = 'white';
+        this.draw(ctx);
+        ctx.strokeStyle = 'black';
+        this.draw(ctx);
     }
     setNewMatrix(newMatrix) {
         this.objectMatrix = newMatrix;
