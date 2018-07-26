@@ -173,7 +173,18 @@ function showListObjects() {
     var ul = document.getElementById('objects');
     
     for (var i = 0; i < objectsList.length; i++) {
-        text = (i+1) + ')' + objectsList[i].objectName + ' - ' + 'X0: ' + objectsList[i].objectMatrix[0][0] + ' - ' + 'Y0: ' + objectsList[i].objectMatrix[1][0] ;
+        if (objectsList[i].objectName == 'Linha'){
+            text = (i+1) + ')' + objectsList[i].objectName + ' - ' + 'P0: (' + objectsList[i].objectMatrix[0][0] + ',' + objectsList[i].objectMatrix[1][0] + ') - ' + 'P1: (' + objectsList[i].objectMatrix[0][1] + ',' + objectsList[i].objectMatrix[1][1] + ')';
+        }
+        if(objectsList[i].objectName == 'Círculo') {
+            text = (i+1) + ')' + objectsList[i].objectName + ' - ' + 'Centro: (' + objectsList[i].objectMatrix[0][0] + ',' + objectsList[i].objectMatrix[1][0] + ')'
+        }
+        if(objectsList[i].objectName == 'Retângulo') {
+            text = (i+1) + ')' + objectsList[i].objectName + ' - ' + 'PD0: (' + objectsList[i].objectMatrix[0][0] + ',' + objectsList[i].objectMatrix[1][0] + ') - ' + 'PD1: (' + objectsList[i].objectMatrix[1][1] + ',' + objectsList[i].objectMatrix[1][1] + ')';
+        }
+        if(objectsList[i].objectName == 'Triângulo') {
+            text = (i+1) + ')' + objectsList[i].objectName + ' - ' + 'P0: (' + objectsList[i].objectMatrix[0][0] + ',' + objectsList[i].objectMatrix[1][0] + ') - ' + 'P1: (' + objectsList[i].objectMatrix[0][1] + ',' + objectsList[i].objectMatrix[1][1] + ') - ' + 'P2: (' + objectsList[i].objectMatrix[0][2] + ',' + objectsList[i].objectMatrix[2][1] + ')';
+        }
         listToShow[i] = text;
     }
     listToShow.forEach(function(item) { 

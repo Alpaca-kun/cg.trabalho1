@@ -76,3 +76,11 @@ function zoomReset() {
     redesign();
     console.log("Zoom resetado");
 }
+
+function select(indice) {
+    objectsList[indice-1].showSelected(ctx);
+}
+
+function deselect(indice) {
+    objectsList[indice-1].deselect(ctx);
+}

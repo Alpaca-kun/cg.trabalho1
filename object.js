@@ -173,9 +173,11 @@ class Triangle {
         
     }
     deselect(ctx) {
-        this.isSelected = false;
-        ctx.strokeStyle = '#000000';
-        this.draw(ctx);
+        if(this.isSelected == true) {
+            this.isSelected = false;
+            ctx.strokeStyle = '#000000';
+            this.draw(ctx);
+        }
     }
     setNewMatrix(newMatrix) {
         this.objectMatrix = newMatrix;

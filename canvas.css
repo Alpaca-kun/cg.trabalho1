@@ -19,7 +19,7 @@
 #listObjects {
     margin-top: 0px;
     margin-left: 820px;
-    width: 300px;
+    width: 400px;
 }
 
 #commandLine {
@@ -54,9 +54,21 @@
     width: 10px; 
 }
 
-#zbutton {
-    width: 35px;
-    height: 35px;
-    text-align: center;
+#zibutton {
+    width: 32px;
+    height: 32px;
+    background-image: url("images/zoom-plus-sign.png"); 
 }
 
+#zobutton {
+    width: 32px;
+    height: 32px;
+    background-image: url("images/zoom-decreasing-button-symbol.png"); 
+}
+
+
+#zrbutton {
+    width: 32px;
+    height: 32px;
+    background-image: url("images/two-squares.png"); 
+}

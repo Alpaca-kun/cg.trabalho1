@@ -36,9 +36,9 @@
       <button onclick="showHelp();">Ajuda</button>
     </div>
     <div id="zoomButtons">
-      <button id="zbutton" class="waves-effect waves-light btn-small" onclick="zoomIn()">+</button>
-      <button id="zbutton" class="waves-effect waves-light btn-small" onclick="zoomOut()">-</button>
-      <button id="zbutton" class="waves-effect waves-light btn-small" onclick="zoomReset()">R</button>
+      <button id="zibutton" class="waves-effect waves-light btn-small" onclick="zoomIn()"></button>
+      <button id="zobutton" class="waves-effect waves-light btn-small" onclick="zoomOut()"></button>
+      <button id="zrbutton" class="waves-effect waves-light btn-small" onclick="zoomReset()"></button>
     </div>
     <br>
     <div id="listObjects">
@@ -51,34 +51,41 @@
   <h4>Ajuda</h4>
   <h5>Desenhos</h5>
   <ol>
-    <li><b>Linha</b>: Para desenhar uma linha, clique no botão com o nome "LINHA", em seguida clique em um ponto do canvas, e sem soltar o clique arraste para o segundo ponto.</li>
-    <li><b>Círculo</b>>: Para desenhar um círculo, clique no botão com o nome "CÍRCULO", em seguida clique em um ponto do canvas, e sem soltar o clique arraste até um segundo ponto, e a partir do segundo ponto será calculado o valor do raio do círculo.</li>
-    <li><b>Retângulo</b>:Para desenhar um retângulo, clique no botão com o nome "RETÂNGULO", em seguida clique em um ponto do canvas, e sem soltar arraste até outro ponto montando a diagonal principal do retângulo.</li>
-    <li><b>Triângulo</b>: Para desenhar um triângulo, clique no botão com o nome "TRIÂNGULO", em seguida clique em três pontos no canvas, onde cada um corresponde à uma ponta do objeto.</li>
+    <li><b>Linha</b>: Para desenhar uma linha, clique no botão com o nome "LINHA", em seguida clique em um ponto no canvas, e sem soltar o clique arraste para o segundo ponto.</li>
+    <li><b>Círculo</b>>: Para desenhar um círculo, clique no botão com o nome "CÍRCULO", em seguida clique em um ponto no canvas, e sem soltar o clique arraste até um segundo ponto, e a partir do segundo ponto será calculado o valor do raio do círculo.</li>
+    <li><b>Retângulo</b>:Para desenhar um retângulo, clique no botão com o nome "RETÂNGULO", em seguida clique em um ponto no canvas, e sem soltar arraste até outro ponto montando a diagonal principal do retângulo.</li>
+    <li><b>Triângulo</b>: Para desenhar um triângulo, clique no botão com o nome "TRIÂNGULO", em seguida clique em três pontos no canvas, onde cada um corresponde a uma ponta do objeto.</li>
     <li><b>Limpar Tela</b>: Para limpar a tela, clique no botão com o nome "LIMPAR" e confirme.</li>
   </ol>
   <h5>Transformações</h5> 
   <ol>
-    <li><b>Translação</b>: Para realizar a translação, clique no botão com o nome "TRANS.", em seguida informe o índice de qual objeto da lista será transladado, por fim informe os valores de TX e TY que serão utilizados.</li>
-    <li><b>Mudança de escala</b>: Para realizar a mudança de escala, clique no botão com o nome "ESCALA", em seguida informe o índice de qual objeto da lista terá sua escala modificada, por fim informe os valores de SX e SY.</li>
-    <li><b>Rotação</b>: Para realizar a rotação, clique no botão com o nome "ROTAÇÃO", em seguida informe o índice de qual objeto da lista será rotacionado, por fim informe o ângulo de rotação (em graus, por exemplo 90).</li>
+    <li><b>Translação</b>: Para realizar a translação, clique no botão com o nome "TRANS.", em seguida informe o índice de qual objeto da lista será transladado, e por fim informe os valores de TX e TY que serão utilizados.</li>
+    <li><b>Mudança de escala</b>: Para realizar a mudança de escala, clique no botão com o nome "ESCALA", em seguida informe o índice de qual objeto da lista terá sua escala modificada, e por fim informe os valores de SX e SY.</li>
+    <li><b>Rotação</b>: Para realizar a rotação, clique no botão com o nome "ROTAÇÃO", em seguida informe o índice de qual objeto da lista será rotacionado, e por fim informe o ângulo de rotação (em graus, por exemplo 90).</li>
   </ol>
   <h5>Comandos</h5>
   <ol>
     <li><b>Linha</b>: O comando para desenhar uma linha é line(x0, y0, x1, y1), onde os dois primeiros valores correspondem ao primeiro ponto da reta e o os dois últimos correspondem ao segundo ponto da reta.</li>
     <li><b>Círculo</b>: O comando para desenhar um círculo é circle(x0, y0, radius), onde os dois primeiros valores correspondem ao centro do círculo e o parâmetro radius corresponde ao raio do mesmo.</li>
     <li><b>Retângulo</b>: O comando para desenhar um retângulo é rect(x0, y0, x1, y1), onde os dois primeiros valores corres a um primeiro ponto e os últimos dois valores correspodem ao ponto que completa uma diagonal com o primeiro ponto.</li>
-    <li><b>Triângulo</b>: O comando para desenhar um triângulo é triangle(x0, y0, x1, y1, x2, y2), onde a cada xi e yi corresponde à um canto do triângulo. </li>
+    <li><b>Triângulo</b>: O comando para desenhar um triângulo é triangle(x0, y0, x1, y1, x2, y2), onde a cada xi e yi corresponde a um canto do triângulo. </li>
     <li><b>Limpar Tela</b>: O comando para limpar a tela é clear(), apos digitá-lo é necessário confirmar a ação.</li>
     <li><b>Aumentar zoom</b>: O comando para aumentar o zoom é zoomIn(), ele irá duplicar a escala dos objetos.</li>
     <li><b>Reduzir zoom</b>:O comando para diminuir o zoom é zoomOut(), ele irá reduzir pela metade a escala dos objetos.</li>
     <li><b>Redefinir</b>: O comando para redefinir o zoom é zoomReset(), ele irá deixar os objetos como eram antes da aplicação do aumento ou redução de zoom.</li>
+    <li><b>Seleção de objetos</b>: Para selecionar objetos use o comando select(indice), onde o parâmetro é o índice do objeto em relação à lista de objetos.</li>
+    <li><b>Deselecionar objetos</b>: Para deselecionar objetos basta usar o comando deselect(indece), onde o parâmetro é o índice do objeto em relação à lista de objetos.</li>
   </ol>
   <h5>Zoom</h5>
   <ol>
-    <li>Aumentar zoom:</li>
-    <li>Reduzir zoom:</li>
-    <li>Redefinir:</li>
+    <li><b>Aumentar zoom</b>: Para aumentar o zoom clique no botão que possui a lupa com o sinal "+".</li>
+    <li><b>Reduzir zoom</b>: Para diminuir o zoom clique no botão que possui a lupa com o sinal "-".</li>
+    <li><b>Redefinir</b>: Para redefinir o canvas clique no ícone com os dois quadrados.</li>
   </ol>
+  <h5>Observações</h5>
+  <ol>
+    <li>Os pontos mostrados na lista de objetos de um retângulo são os pontos da diagonal principal do mesmo.</li>
+  </ol>
+
   <h6>Sair: Para sair desta tela aperte ESC.</h6>
 </dialog>
