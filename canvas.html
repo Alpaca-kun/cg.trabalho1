@@ -24,6 +24,8 @@
       <script language="JavaScript" src="canvas.js"></script>
       <script language="JavaScript" src="object.js"></script>
       <script language="JavaScript" src="transformation.js"></script>
+      <script language="JavaScript" src="commandLine.js"></script>
+      <script language="JavaScript" src="help.js"></script>
       <br>
       <input id="commandLine" type="text" placeholder="Veja na janela de ajuda os possíveis comandos.">
       <output id="cursorCoodinates" disabled="true"></output>
@@ -39,3 +41,23 @@
   </body>  
 </html>
 
+<dialog id="helpModal">
+  <h4>Ajuda</h4>
+  <h5>Desenhos</h5>
+  <ol>
+    <li>Linha: Para desenhar uma linha clique no botão com o nome "LINHA", em seguida clique em um ponto do canvas, e sem soltar o clique arraste para o segundo ponto.</li>
+    <li>Círculo: Para desenhar um círculo clique no botão com o nome "CÍRCULO", em seguida clique em um pondo do canvas, e sem soltar o clique arraste até um segundo ponto, e a partir do segundo ponto será calculado o valor do raio do círculo. </li>
+    <li>Retângulo: </li>
+    <li>Triângulo:</li>
+    <li>Limpar Tela:</li>
+  </ol>
+  <h5>Comandos</h5>
+  <ol>
+    <li>Linha:</li>
+    <li>Círculo</li>
+    <li>Retângulo</li>
+    <li>Triângulo</li>
+    <li>Limpar Tela:</li>
+  </ol>
+  <h6>Sair: Para sair desta tela aperte ESC.</h6>
+</dialog>

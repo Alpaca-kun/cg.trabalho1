@@ -7,7 +7,7 @@ var text;
 
 function get2Points(event, form) {
     var x0, x1, y0, y1;
-    function distance2Points(){
+    function distance2Points() {
         var distance =  Math.sqrt(Math.pow(x1-x0,2) + Math.pow(y1-y0, 2));
         return distance;
     }
@@ -114,8 +114,7 @@ function draw (object) {
             if (decision) {
                 console.log('Canvas será limpado.');
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
-                objectsList = [];
-                clearObjectList();
+                location.reload();
             } else {
                 console.log('Cancelado.');
             }
@@ -131,9 +130,12 @@ function transformation(type) {
             var indice = prompt('Insira o índice da figura a ser transladada em relação à lista ao lado.');
             var tx = prompt('Insira o deslocamento em x.');
             var ty = prompt('Insira o deslocamento em y.');
-            clearOnlyCanvas();
-            objectsList[indice-1].setNewMatrix(translate(objectsList[indice-1].objectMatrix, tx, ty));
-            redesign();
+
+            if(indice != undefined && tx != undefined && ty != undefined) {
+                clearOnlyCanvas();
+                objectsList[indice-1].setNewMatrix(translate(objectsList[indice-1].objectMatrix, tx, ty));
+                redesign();
+            }
         break;
         case 'rotation':
             var indice = prompt('Insira o índice da figura a ser rotacionada em relação à lista ao lado.');
@@ -142,18 +144,22 @@ function transformation(type) {
                 alert('Um círculo não pode ser rotacionado');
             }else {
                 var angle = prompt('Insira o ângulo de rotação.');
-                clearOnlyCanvas();
-                objectsList[indice-1].setNewMatrix(rotate(objectsList[indice-1].objectMatrix, angle, objectsList[indice-1].objectMatrix[0][0], objectsList[indice-1].objectMatrix[1][0]));
-                redesign();
+                if(indice != undefined && angle != undefined) {
+                    clearOnlyCanvas();
+                    objectsList[indice-1].setNewMatrix(rotate(objectsList[indice-1].objectMatrix, angle, objectsList[indice-1].objectMatrix[0][0], objectsList[indice-1].objectMatrix[1][0]));
+                    redesign();
+                }
             }   
         break;
         case 'scale':
             var indice = prompt('Insira o índice da figura que terá sua escala mudada em relação à lista ao lado.');
             var sx = prompt('Insira a escala em x.');
             var sy = prompt('Insira a escala em y.');
-            clearOnlyCanvas();
-            objectsList[indice-1].setNewMatrix(scale(objectsList[indice-1].objectMatrix, sx, sy,  objectsList[indice-1].objectMatrix[0][0], objectsList[indice-1].objectMatrix[1][0]));
-            redesign();
+            if(indice != undefined && sx != undefined && sy != undefined) {
+                clearOnlyCanvas();
+                objectsList[indice-1].setNewMatrix(scale(objectsList[indice-1].objectMatrix, sx, sy,  objectsList[indice-1].objectMatrix[0][0], objectsList[indice-1].objectMatrix[1][0]));
+                redesign();
+            }    
         break;
         default:
             console.log('Nothing to do');
@@ -203,12 +209,6 @@ canvas.addEventListener("mousemove", function (event) {
     coordOut.innerHTML = 'X = ' + x1 +'|' +' Y = ' + y1;
 })
 
-function submitCommand() {
-    var commandLine = document.getElementById('commandLine');
-    text = commandLine.value;
-    console.log(text);
-}
-
 canvas.addEventListener('wheel', function(e) {
     if (e.wheelDelta >= 0) {
         console.log('up');
@@ -219,14 +219,8 @@ canvas.addEventListener('wheel', function(e) {
     }
 })
 
-function zoomIn() {
-    clearOnlyCanvas();
-    ctx.scale(2, 2);
-    redesign();
-}
-
-function zoomOut() {
-    clearOnlyCanvas();
-    ctx.scale(0.5, 0.5);
-    redesign();
-}
+canvas.addEventListener('keydown', function(event) {
+    if (event.which == 32) {
+        zoomReset();
+    }
+})
