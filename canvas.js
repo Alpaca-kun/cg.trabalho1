@@ -13,14 +13,12 @@ function get2Points(event, form) {
     }
     
     canvas.onmousedown = function(event) {
-        event = event;
         x0 = event.clientX - canvas.offsetLeft;
         y0 = event.clientY - canvas.offsetTop;
         console.log('X0 = ' + x0 + ' Y0 = ' + y0)
     }
 
     canvas.onmouseup = function(event) {
-        event = event;
         x1 = event.clientX - canvas.offsetLeft;
         y1 = event.clientY - canvas.offsetTop;
         console.log('X1 = ' + x1 + ' Y1 = ' + y1);
@@ -210,7 +208,6 @@ function redesign() {
 
 canvas.addEventListener("mousemove", function (event) {
     var coordOut = document.getElementById('cursorCoodinates');
-    event = event;
     x1 = event.clientX - canvas.offsetLeft;
     y1 = event.clientY - canvas.offsetTop;
     coordOut.innerHTML = 'X = ' + x1 +'|' +' Y = ' + y1;
