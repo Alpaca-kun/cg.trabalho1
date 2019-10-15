@@ -11,10 +11,6 @@ function get2Points(event, form) {
         var distance =  Math.sqrt(Math.pow(x1-x0,2) + Math.pow(y1-y0, 2));
         return distance;
     }
-
-    function removeEvent() {
-        form = null;
-    }
     
     canvas.onmousedown = function(event) {
         event = event;
@@ -35,7 +31,7 @@ function get2Points(event, form) {
                 objectsList[objectsList.length-1].makeMatrix();
                 objectsList[objectsList.length-1].draw(ctx);
                 showListObjects();
-                removeEvent();        
+                form = null;
                 break;
 
             case 'circle':
@@ -44,7 +40,7 @@ function get2Points(event, form) {
                 objectsList[objectsList.length-1].makeMatrix();
                 objectsList[objectsList.length-1].draw(ctx);
                 showListObjects();
-                removeEvent();
+                form = null;
                 break;
 
             case 'rect':
@@ -53,7 +49,7 @@ function get2Points(event, form) {
                 objectsList[objectsList.length-1].makeMatrix();
                 objectsList[objectsList.length-1].draw(ctx);
                 showListObjects();
-                removeEvent();
+                form = null;
                 break;
 
             default:
