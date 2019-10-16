@@ -22,6 +22,28 @@ function get2Points(event, form) {
         x1 = event.clientX - canvas.offsetLeft;
         y1 = event.clientY - canvas.offsetTop;
         console.log('X1 = ' + x1 + ' Y1 = ' + y1);
+        
+        if (form == 'line') {
+            let newLine = new Line(x0, y0,x1, y1);
+            objectsList.push(newLine);
+        }
+
+        else if (form == 'circle') {
+            let newCircle = new Circle(x0, y0, distance2Points());
+            objectsList.push(newCircle);
+        }
+
+        else if (form == 'rect') {
+            let newRect = new Rect(x0, y0, x1, y1);
+            objectsList.push(newRect);
+        }
+
+        objectsList[objectsList.length-1].makeMatrix();
+        objectsList[objectsList.length-1].draw(ctx);
+        showListObjects();
+        form = null;
+
+        /*
         switch(form){
             case 'line':
                 let newLine = new Line(x0, y0,x1, y1);
@@ -53,6 +75,7 @@ function get2Points(event, form) {
             default:
                 break;
         }
+        */
     }
 }
 
